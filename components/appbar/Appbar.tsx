@@ -1,21 +1,21 @@
 import React from 'react'
-import { AppBar, Container, Link, Stack, Toolbar, Typography, Box, Button } from '@mui/material'
+import { AppBar, Container, Link, Toolbar, Typography, Box } from '@mui/material'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 // TODO: Work on responsiveness, the AppBar is unresponsive.
 
 const Appbar = () => {
   return (
-    <AppBar position="static" color='transparent' elevation={0}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ alignItems: 'center' }}>
-          <Container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Link href="/" underline="none" sx={{ color: 'black' }}>
-              <Typography variant="h4" fontWeight={600}>Ecommerce Store</Typography>
-            </Link>
-            <Link href="#" underline="none" sx={{ color: 'black' }}>
-              <Typography variant="h4">PRICE</Typography>
-            </Link>
-          </Container>
+    <AppBar position="sticky" elevation={0} sx={{ background: 'white', color: 'black' }}>
+      <Container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <Toolbar sx={{ flexGrow: 1 }}>
+          <Link underline="none" color="black" href="/" sx={{ flexGrow: 1 }}>
+            <Typography variant={'h5'} component={"div"} sx={{ fontWeight: 600 }}>Ecommerce Store</Typography>
+          </Link>
+          <Link component="button" underline="none" href="#" sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', color: 'black' }}>
+            <ShoppingCartIcon sx={{ marginRight: 1 }} />
+            <Typography variant="h5" component={"div"}>$0.00</Typography>
+          </Link>
         </Toolbar>
       </Container>
     </AppBar >
