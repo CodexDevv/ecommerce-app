@@ -33,14 +33,15 @@ const CartDialog = ({ open, handleClose }: Props) => {
       <AppBar position="sticky" elevation={0} sx={{ background: 'transparent', color: 'black', paddingTop: '0.5rem' }}>
         <Toolbar>
           {/* TODO: Might need to reconsider this container as it offsets items */}
-          <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }
+          } >
 
             <Link component="button" underline="none" onClick={handleClose} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end', color: 'black' }}>
               <KeyboardBackspaceIcon sx={{ marginRight: 1 }} color="primary" />
-              <Typography variant="subtitle2" >Continue Shopping</Typography>
+              <Typography variant="subtitle2" sx={{ display: { xs: 'none', md: 'flex' } }}>Continue Shopping</Typography>
             </Link>
 
-            <Typography fontWeight={600} color={'#2e3338'}>Cart summary</Typography>
+            <Typography fontWeight={600} color={'#2e3338'} sx={{ display: { xs: 'none', md: 'flex' } }}>Cart summary</Typography>
 
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end' }}>
               <PersonOutlineOutlinedIcon sx={{ marginInline: 1 }} color="primary" />
