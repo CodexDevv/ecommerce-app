@@ -1,6 +1,8 @@
 import React from 'react'
 import { AppBar, Container, Link, Stack, Toolbar, Typography, Box, Button } from '@mui/material'
 
+// TODO: Work on responsiveness, the AppBar is unresponsive.
+
 const Appbar = () => {
   return (
     <AppBar position="static" color='transparent' elevation={0}>
