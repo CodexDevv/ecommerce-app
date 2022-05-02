@@ -1,7 +1,10 @@
-import { Dialog, Container, AppBar, Toolbar, Typography, Link } from '@mui/material'
-import React from 'react'
+import { Dialog, Container, AppBar, Toolbar, Typography, Link, Box, Button } from '@mui/material'
+import React, { useState } from 'react'
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 type Props = {
   open: boolean,
@@ -19,33 +22,48 @@ const Transition = React.forwardRef(function Transition(
 
 const CartDialog = ({ open, handleClose }: Props) => {
 
+  const [itemCount, setItemCount] = useState<number>(0);
+
   return (
     <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} PaperProps={{
       style: {
         backgroundColor: '#f1f2f4',
       }
     }}>
-      <AppBar position="sticky" elevation={0} sx={{ background: 'transparent', color: 'black' }}>
-        <Container>
-          <Toolbar>
-            <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+      <AppBar position="sticky" elevation={0} sx={{ background: 'transparent', color: 'black', paddingTop: '0.5rem' }}>
+        <Toolbar>
+          {/* TODO: Might need to reconsider this container as it offsets items */}
+          <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
 
-              <Link component="button" underline="none" onClick={handleClose}>
-                <Typography>Continue Shopping</Typography>
-              </Link>
+            <Link component="button" underline="none" onClick={handleClose} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end', color: 'black' }}>
+              <KeyboardBackspaceIcon sx={{ marginRight: 1 }} color="primary" />
+              <Typography variant="subtitle2" >Continue Shopping</Typography>
+            </Link>
 
-              <Typography fontWeight={600} lineHeight={1} color={'#2e3338'}>Cart summary</Typography>
+            <Typography fontWeight={600} color={'#2e3338'}>Cart summary</Typography>
 
-              <Typography>Item Count: 0</Typography>
-            </Container>
-          </Toolbar>
-        </Container>
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end' }}>
+              <PersonOutlineOutlinedIcon sx={{ marginInline: 1 }} color="primary" />
+              <Typography variant="subtitle2">Sign in</Typography>
+              <ShoppingBagOutlinedIcon sx={{ marginRight: 1, marginLeft: 2 }} color="primary" />
+              <Typography variant="subtitle2">{itemCount}</Typography>
+              {/* item count */}
+            </Box>
+          </Container>
+        </Toolbar>
       </AppBar >
-      <Container>
-        <h1>Testing</h1>
-      </Container>
+      {(itemCount) ? (
+        <Container>
+          <h1>Has Items</h1>
+        </Container>
+      ) : (
+        <Container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+          <Typography variant="h6" sx={{ fontWeight: '500', marginBottom: 5, color: '#8f99a3' }} >Your cart is empty.</Typography>
+          <Button startIcon={<KeyboardBackspaceIcon />} variant="text" sx={{ marginTop: 20 }} onClick={handleClose}>Back to store</Button>
+        </Container>
+      )}
     </Dialog >
   )
 }
 
-export default CartDialog
+export default CartDialog;
