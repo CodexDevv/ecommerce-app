@@ -1,4 +1,4 @@
-import { Container, Grid, Box, Typography } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import type { NextPage } from 'next'
 import Appbar from '../components/appbar/Appbar'
 import Storecard from '../components/storecard/Storecard'

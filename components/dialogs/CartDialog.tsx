@@ -1,4 +1,4 @@
-import { Dialog, Container, AppBar, Box, Toolbar, Typography, Stack, Link } from '@mui/material'
+import { Dialog, Container, AppBar, Toolbar, Typography, Link } from '@mui/material'
 import React from 'react'
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
@@ -20,19 +20,24 @@ const Transition = React.forwardRef(function Transition(
 const CartDialog = ({ open, handleClose }: Props) => {
 
   return (
-    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} PaperProps={{
+      style: {
+        backgroundColor: '#f1f2f4',
+      }
+    }}>
       <AppBar position="sticky" elevation={0} sx={{ background: 'transparent', color: 'black' }}>
         <Container>
-          <Toolbar sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Stack direction={"row"} justifyContent="space-between" alignItems="center" spacing={2}>
+          <Toolbar>
+            <Container sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+
               <Link component="button" underline="none" onClick={handleClose}>
                 <Typography>Continue Shopping</Typography>
               </Link>
 
-              <Typography>Cart summary</Typography>
+              <Typography fontWeight={600} lineHeight={1} color={'#2e3338'}>Cart summary</Typography>
 
               <Typography>Item Count: 0</Typography>
-            </Stack>
+            </Container>
           </Toolbar>
         </Container>
       </AppBar >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Container, Link, Toolbar, Typography, Button } from '@mui/material'
+import { AppBar, Container, Link, Toolbar, Typography } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CartDialog from '../dialogs/CartDialog';
 
@@ -16,7 +16,7 @@ const Appbar = () => {
   }
 
   return (
-    <AppBar position="sticky" elevation={0} sx={{ background: 'white', color: 'black' }}>
+    <AppBar position="static" elevation={0} sx={{ background: 'white', color: 'black' }}>
       <Container sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Toolbar sx={{ flexGrow: 1 }}>
           <Link underline="none" color="black" href="/" sx={{ flexGrow: 1 }}>
