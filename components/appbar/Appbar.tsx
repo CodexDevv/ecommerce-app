@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Container, Link, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Link, Toolbar, Typography } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CartDialog from '../dialogs/CartDialog';
 
@@ -17,8 +17,8 @@ const Appbar = () => {
 
   return (
     <AppBar position="static" elevation={0} sx={{ background: 'white', color: 'black' }}>
-      <Toolbar sx={{ flexGrow: 1 }}>
-        <Link underline="none" color="black" href="/" sx={{ flexGrow: 1 }}>
+      <Toolbar sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Link underline="none" color="black" href="/">
           <Typography variant={'h5'} component={"div"} sx={{ fontWeight: 600 }}>Ecommerce Store</Typography>
         </Link>
         <Link component="button" underline="none" sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', color: 'black' }} onClick={handleOpen}>

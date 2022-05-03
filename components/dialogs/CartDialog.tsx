@@ -5,6 +5,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LoginDialog from './LoginDialog';
 
 type Props = {
   open: boolean,
@@ -23,6 +24,16 @@ const Transition = React.forwardRef(function Transition(
 const CartDialog = ({ open, handleClose }: Props) => {
 
   const [itemCount, setItemCount] = useState<number>(0);
+
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+
+  const handleLoginOpen = () => {
+    setLoginOpen(true);
+  }
+
+  const handleLoginClose = () => {
+    setLoginOpen(false);
+  }
 
   return (
     <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} PaperProps={{
@@ -44,11 +55,13 @@ const CartDialog = ({ open, handleClose }: Props) => {
             <Typography fontWeight={600} color={'#2e3338'} sx={{ display: { xs: 'none', md: 'flex' } }}>Cart summary</Typography>
 
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end' }}>
-              <PersonOutlineOutlinedIcon sx={{ marginInline: 1 }} color="primary" />
-              <Typography variant="subtitle2">Sign in</Typography>
+              <Link component="button" underline="none" onClick={handleLoginOpen} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'end', color: 'black' }}>
+                <PersonOutlineOutlinedIcon sx={{ marginInline: 1 }} color="primary" />
+                <Typography variant="subtitle2">Sign in</Typography>
+              </Link>
               <ShoppingBagOutlinedIcon sx={{ marginRight: 1, marginLeft: 2 }} color="primary" />
               <Typography variant="subtitle2">{itemCount}</Typography>
-              {/* item count */}
+              <LoginDialog open={loginOpen} handleClose={handleLoginClose} />
             </Box>
           </Container>
         </Toolbar>
