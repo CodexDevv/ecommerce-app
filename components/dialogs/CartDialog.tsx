@@ -6,6 +6,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LoginDialog from './LoginDialog';
+import ItemCard from '../itemincart/ItemCard'
 
 type Props = {
   open: boolean,
@@ -23,7 +24,7 @@ const Transition = React.forwardRef(function Transition(
 
 const CartDialog = ({ open, handleClose }: Props) => {
 
-  const [itemCount, setItemCount] = useState<number>(0);
+  const [itemCount, setItemCount] = useState<number>(1);
 
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
@@ -69,6 +70,7 @@ const CartDialog = ({ open, handleClose }: Props) => {
       {(itemCount) ? (
         <Container>
           <h1>Has Items</h1>
+          <ItemCard />
         </Container>
       ) : (
         <Container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>

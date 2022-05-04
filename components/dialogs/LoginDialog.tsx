@@ -16,10 +16,6 @@ type Props = {
   handleClose: any,
 }
 
-function timeout(delay: number) {
-  return new Promise(res => setTimeout(res, delay));
-}
-
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement;
@@ -35,6 +31,7 @@ const LoginDialog = ({ open, handleClose }: Props) => {
   const [forgotOpen, setForgotOpen] = useState<boolean>(false);
 
   const handleSignupOpen = () => {
+    // handleClose(); might need to change each open variable to be like unique so it doesn't just
     setSignupOpen(true);
   }
 
