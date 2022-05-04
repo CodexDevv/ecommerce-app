@@ -17,7 +17,7 @@ const ItemCard = () => {
         </Box>
       </Box>
 
-      {/* need to add the price typography component */}
+      {/*TODO: need to add the price typography component */}
 
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
