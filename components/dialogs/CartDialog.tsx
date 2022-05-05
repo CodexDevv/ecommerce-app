@@ -7,6 +7,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LoginDialog from './LoginDialog';
 import ItemCard from '../itemincart/ItemCard'
+import CheckoutContainer from '../checkout/CheckoutContainer'
 
 type Props = {
   open: boolean,
@@ -69,8 +70,8 @@ const CartDialog = ({ open, handleClose }: Props) => {
       </AppBar >
       {(itemCount) ? (
         <Container>
-          <h1>Has Items</h1>
           <ItemCard />
+          <CheckoutContainer />
         </Container>
       ) : (
         <Container sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>

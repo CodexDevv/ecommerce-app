@@ -4,8 +4,8 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 
 const ItemCard = () => {
   return (
-    <Box sx={{ backgroundColor: 'white', display: 'flex', flexDirection: 'row', padding: '2rem', height: '13rem' }}>
-      <Box sx={{ display: 'flex' }}>
+    <Box sx={{ backgroundColor: 'white', display: 'flex', flexDirection: 'row', padding: '2rem', height: '13rem', marginBottom: '4rem' }}>
+      <Box sx={{ display: 'flex', aspectRatio: '1 / 1' }}>
         <img src="https://via.placeholder.com/120/" />
       </Box>
       <Box flexGrow={1}>
@@ -20,26 +20,19 @@ const ItemCard = () => {
           </Box>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: 4 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <FormLabel>Quantity</FormLabel>
-            <Box sx={{ display: 'flex', outline: '2px solid blue', paddingTop: '10px' }}>
-              <Link component="button" underline="none" sx={{ padding: '15px', paddingTop: '5px' }}>+</Link>
-              <Typography>1</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginRight: 6 }}>
+            <FormLabel sx={{ fontSize: '0.8rem', paddingBottom: '0.2rem' }}>Quantity</FormLabel>
+            <Box sx={{ display: 'flex', outline: '2px solid lightblue', paddingTop: '10px' }}>
               <Link component="button" underline="none" sx={{ padding: '15px', paddingTop: '5px' }}>-</Link>
+              <Typography>1</Typography>
+              <Link component="button" underline="none" sx={{ padding: '15px', paddingTop: '5px' }}>+</Link>
             </Box>
           </Box>
-          <Box>
-
+          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 1.5 }}>
+            <Typography>$0.00</Typography>
           </Box>
         </Box>
       </Box>
-
-
-
-      {/*TODO: need to add the price typography component */}
-
-
-
     </Box >
   )
 }
