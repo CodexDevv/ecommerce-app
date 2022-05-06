@@ -1,13 +1,16 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Typography, Link } from '@mui/material'
 import React from 'react'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 
 const CheckoutContainer = () => {
   return (
     <Box>
+      <Box>
+        <Link component="button" underline="none" sx={{ padding: '1rem', marginBottom: 4, backgroundColor: 'white', width: '100%', outline: '1px solid gray', color: 'black' }}>Promo Code</Link>
+      </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant="subtitle2">Shipping and taxes will be calculated at checkout.</Typography>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
           <Typography>Total</Typography>
           <Typography>$0.00</Typography>
         </Box>
