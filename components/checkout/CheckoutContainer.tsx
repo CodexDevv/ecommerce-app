@@ -1,13 +1,28 @@
-import { Box, Button, Typography, Link } from '@mui/material'
-import React from 'react'
+import { Box, Button, Typography, Link, TextField } from '@mui/material'
+import React, { useState } from 'react'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 
 const CheckoutContainer = () => {
+
+  const [promoCodeState, setPromoCodeState] = useState<boolean>(false);
+
+  // TODO: Work on the main box container and it's layout
+
   return (
     <Box>
-      <Box>
-        <Link component="button" underline="none" sx={{ padding: '1rem', marginBottom: 4, backgroundColor: 'white', width: '100%', outline: '1px solid gray', color: 'black' }}>Promo Code</Link>
-      </Box>
+      {!promoCodeState ? (
+        <Box>
+          <Link component="button" underline="none" sx={{ padding: '1rem', marginBottom: 4, backgroundColor: 'white', width: '100%', outline: '1px solid gray', color: 'black' }} onClick={() => setPromoCodeState(true)}>Promo Code</Link>
+        </Box>
+      ) : (
+        <Box sx={{ display: 'flex', justifyContent: 'start' }}>
+          <TextField label="Promo Code" variant="outlined" sx={{ alignSelf: 'start' }} />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', flexGrow: 1, marginLeft: 2 }}>
+            <Link component="button" sx={{ color: '#444s' }}>Apply</Link>
+            <Link component="button" sx={{ color: '#000' }} onClick={() => setPromoCodeState(false)}>Cancel</Link>
+          </Box>
+        </Box>
+      )}
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant="subtitle2">Shipping and taxes will be calculated at checkout.</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2 }}>
